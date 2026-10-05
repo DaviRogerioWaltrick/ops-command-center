@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens (dark "control panel").
+ * Deviations, deliberate: muted ink is #8a887d, not the original #6e6c62
+ * (3.2:1 on the surface, below the 4.5:1 small-text minimum; this is 4.8:1),
+ * and link/accent text uses the lighter #7c8bff (5.7:1) while accent fills keep
+ * #5b6ef5. The chart series blue #3987e5 passes the dataviz palette validator
+ * against the surface. The app is dark-only.
+ */
+@theme inline {
+  --color-bg: #121311;
+  --color-surface: #1b1d19;
+  --color-line: rgba(255, 255, 255, 0.09);
+  --color-ink: #f4f2ea;
+  --color-ink-2: #a8a69b;
+  --color-ink-3: #8a887d;
+  --color-accent: #5b6ef5;
+  --color-accent-ink: #7c8bff;
+  --color-series: #3987e5;
+  --color-red: #e2574c;
+  --color-amber: #e8a23a;
+  --color-green: #52b788;
+  --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-space);
+  --font-mono: var(--font-plex-mono);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-accent-ink);
+  outline-offset: 2px;
+}
